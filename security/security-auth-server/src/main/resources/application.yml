@@ -1,0 +1,12 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9769/eureka/ #注册中心地址
+  instance:
+    prefer-ip-address: true #使用ip地址注册
+    instance-id: auth-server:3000  #指定服务的id
+server:
+  port: 3000
+spring:
+  application:
+    name: auth-server

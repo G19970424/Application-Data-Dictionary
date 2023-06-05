@@ -11,14 +11,18 @@
     <description>Demo project for Spring Boot</description>
 
     <modules>
-        <module>add-oauth2-server</module>
+        <module>security</module>
         <module>common</module>
+        <module>security/security-auth-server</module>
+        <module>security/security-eureka-server</module>
+        <module>security/security-resource-server</module>
+        <module>security/security-zuul-server</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
         <spring-boot-version>2.7.5</spring-boot-version>
-        <spring-cloud-version>Hoxton.SR9</spring-cloud-version>
+        <spring-cloud-version>2021.0.3</spring-cloud-version>
         <lombox-version>1.18.22</lombox-version>
         <common-lang-version>3.12.0</common-lang-version>
         <mysql-version>8.0.22</mysql-version>
