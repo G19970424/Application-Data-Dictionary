@@ -12,6 +12,7 @@
 
     <modules>
         <module>add-oauth2-server</module>
+        <module>common</module>
     </modules>
 
     <properties>
