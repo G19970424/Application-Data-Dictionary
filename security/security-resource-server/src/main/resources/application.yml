@@ -4,9 +4,9 @@ eureka:
       defaultZone: http://localhost:9769/eureka/ #注册中心地址
   instance:
     prefer-ip-address: true #使用ip地址注册
-    instance-id: resource1-server:4000  #指定服务的id
+    instance-id: resource1-server:9771  #指定服务的id
 server:
-  port: 4000
+  port: 9771
 spring:
   application:
     name: resource-server

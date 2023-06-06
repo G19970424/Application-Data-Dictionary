@@ -4,9 +4,17 @@ eureka:
       defaultZone: http://localhost:9769/eureka/ #注册中心地址
   instance:
     prefer-ip-address: true #使用ip地址注册
-    instance-id: auth-server:3000  #指定服务的id
+    instance-id: auth-server:9770  #指定服务的id
 server:
-  port: 3000
+  port: 9770
 spring:
   application:
     name: auth-server
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/dictionary_user?serverTimezone=UTC&Unicode=true&characterEncoding=utf-8&AllowPublicKeyRetrieval=True
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  mapper-locations: classpath*cn/dictionary/application/dao/mapper/*.xml

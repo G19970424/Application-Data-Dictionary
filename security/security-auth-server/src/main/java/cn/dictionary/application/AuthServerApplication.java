@@ -1,7 +1,9 @@
 package cn.dictionary.application;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * @Description AuthServer认证授权微服务
@@ -10,9 +12,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version 1.0
  **/
 @SpringBootApplication
-public class EurekaServerApplication {
+@MapperScan("cn.dictionary.application.dao.mapper")
+public class AuthServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(EurekaServerApplication.class,args);
+        SpringApplication.run(AuthServerApplication.class,args);
     }
 }

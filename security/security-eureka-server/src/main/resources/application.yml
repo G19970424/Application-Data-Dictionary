@@ -5,6 +5,6 @@ eureka:
     hostname: localhost
   client:
     registerWithEureka: false #禁用注册中心向自己注册
-      fetchRegistry: false  #不让注册中心获取服务的注册列表
-      serviceUrl:
-        defaultZone: http://localhost:9769/eureka/
+    fetchRegistry: false  #不让注册中心获取服务的注册列表
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

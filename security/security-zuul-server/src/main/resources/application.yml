@@ -4,9 +4,9 @@ eureka:
       defaultZone: http://localhost:9769/eureka/ #注册中心地址
   instance:
     prefer-ip-address: true #使用ip地址注册
-    instance-id: zuul-server:2000  #指定服务的id
+    instance-id: zuul-server:9772  #指定服务的id
 server:
-  port: 2000
+  port: 9772
 zuul:
   ignored-services: "*"   #禁止使用服务名字进行访问
   prefix: "/servers"  #统一的前缀

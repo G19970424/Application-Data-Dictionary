@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dictionary.application.dao.mapper.PermissionMapper">
+    <resultMap id="BaseResult" type="cn.dictionary.application.dao.pojo.Permission">
+        <id column="F_ID" property="id" jdbcType="VARCHAR"/>
+        <result column="F_EXPRESSION" property="expression" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="ColumnSql">
+        F_ID,
+        F_EXPRESSION
+    </sql>
+    <select id="selectPermissionsByUserId" resultMap="BaseResult" parameterType="java.lang.String">
+        select
+            <include refid="ColumnSql"/>
+        from t_tr_permission t
+        left join t_tr_user t1 t1.f_permission_id = t.f_permission_id
+        where t1.f_id = #{id}
+    </select>
+</mapper>
