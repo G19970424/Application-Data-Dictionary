@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @Date 2023/6/5 22:23
  * @Version 1.0
  **/
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class ResourceServerApplication {
 
     public static void main(String[] args) {
