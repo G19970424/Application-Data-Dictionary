@@ -10,6 +10,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,6 +21,7 @@ import java.util.List;
  * @author gejj
  * @data 2023/6/6 15:57
  */
+@Component
 public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired
@@ -37,9 +40,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
         if(null == userFromDB){
             throw new RuntimeException("无效的用户");
         }
-
-        //模拟存储在数据库的用户的密码：123
-        //String password = passwordEncoder.encode("123");
         String password = userFromDB.getPassword();
 
         //查询用户的权限
@@ -52,7 +52,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(e.getExpression()));
         });
         //注意：这里的User是Security的User不是我们自己的User
-        org.springframework.security.core.userdetails.User  user = new org.springframework.security.core.userdetails.User (s,password, authorities);
+        org.springframework.security.core.userdetails.User  user = new org.springframework.security.core.userdetails.User (s,new BCryptPasswordEncoder().encode(password), authorities);
 
         return user;
     }

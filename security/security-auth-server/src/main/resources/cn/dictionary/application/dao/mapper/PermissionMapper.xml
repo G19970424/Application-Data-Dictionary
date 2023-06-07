@@ -7,14 +7,14 @@
         <result column="F_EXPRESSION" property="expression" jdbcType="VARCHAR"/>
     </resultMap>
     <sql id="ColumnSql">
-        F_ID,
-        F_EXPRESSION
+        t.F_ID,
+        t.F_EXPRESSION
     </sql>
     <select id="selectPermissionsByUserId" resultMap="BaseResult" parameterType="java.lang.String">
         select
             <include refid="ColumnSql"/>
         from t_tr_permission t
-        left join t_tr_user t1 t1.f_permission_id = t.f_permission_id
+        left join t_tr_user t1 on t1.f_role_id = t.f_role_id
         where t1.f_id = #{id}
     </select>
 </mapper>
