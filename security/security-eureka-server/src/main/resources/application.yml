@@ -1,10 +1,20 @@
+
 server:
   port: 9769
 eureka:
   instance:
-    hostname: localhost
+    hostname: 127.0.0.1
   client:
     registerWithEureka: false #禁用注册中心向自己注册
     fetchRegistry: false  #不让注册中心获取服务的注册列表
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://user:user@127.0.0.1:9769/eureka/
+  #server:
+    #enable-self-preservation: false #关闭自我保护机制
+spring:
+  security:
+    user:
+      name: user
+      password: user
+  application:
+    name: eureka-server
