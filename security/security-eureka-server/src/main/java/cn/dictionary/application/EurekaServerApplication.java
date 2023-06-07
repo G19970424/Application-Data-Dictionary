@@ -22,12 +22,4 @@ public class EurekaServerApplication {
         SpringApplication.run(EurekaServerApplication.class,args);
     }
 
-    @EnableWebSecurity
-    static class WebSecurityConfig extends WebSecurityConfigurerAdapter{
-        @Override
-        protected void configure(HttpSecurity http) throws Exception {
-            http.csrf().ignoringAntMatchers("/eureka/**");
-            super.configure(http);
-        }
-    }
 }
